@@ -9,18 +9,13 @@
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <script src="js/html5shiv.js"></script>
 	<link href="css/justified-nav.css" rel="stylesheet">
-
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
-  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
  
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
+
+
 </head>
 
 <body>
@@ -31,7 +26,7 @@
 				<ul class="nav nav-justified">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="flow.php">Netflow</a></li>
-                    <li class="active"><a href="flow_inbound.php">Netflow Inbound</a></li>
+                    <li class="active"><a href="flow_inbound.php">Netflow Inside Topology</a></li>
                     <li><a href="#">DNS query record</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Logout</a></li>
@@ -43,7 +38,7 @@
 		<div class="col-md-12 column">
 			<div class="page-header">
 				<h1 class="text-center">
-					Netflow inbound 
+					Netflow Inside Topology 
 				</h1>
 			</div>
 			<table class="table table-striped table-hover table-responsive">
@@ -87,5 +82,8 @@
 		</div>
 	</div>
 </div>
+<?php
+	include('tmp.html');
+?>
 </body>
 </html>

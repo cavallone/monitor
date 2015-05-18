@@ -9,8 +9,6 @@
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <script src="js/html5shiv.js"></script>
 	<link href="css/justified-nav.css" rel="stylesheet">
 
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
@@ -43,7 +41,7 @@
 		<div class="col-md-12 column">
 			<div class="page-header">
 				<h1 class="text-center">
-					Netflow <small>(just show top 30 flows from now on)</small> 
+					Netflow <small>(just show top 30 flows before now)</small> 
 				</h1>
 			</div>
 			<table class="table table-striped table-hover table-responsive">
