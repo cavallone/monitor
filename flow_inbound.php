@@ -1,3 +1,7 @@
+<?php
+include('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,12 +28,12 @@
 		<div class="masthead">
 			<nav>
 				<ul class="nav nav-justified">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="flow.php">Netflow</a></li>
                     <li class="active"><a href="flow_inbound.php">Netflow Inside Topology</a></li>
                     <li><a href="#">DNS query record</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="logout.php">Logout</a></li>
                 </ul>
 			</nav>
 		</div>
@@ -77,7 +81,7 @@
 				</tbody>
 			</table>
 			<p>
-                <a class="btn btn-primary btn-lg" href="#">Read more ...</a>
+                <a class="btn btn-danger disabled" href="#">Read more ...</a>
             </p>
 		</div>
 	</div>

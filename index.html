@@ -1,100 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include('login.php'); // Includes Login Script
+
+if(isset($_SESSION['login_user'])){
+header("location: home.php");
+}
+?>
+
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>Netflow Monitor System</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="Chia-Cheng, Tu">
-
-	
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-
-
-  <!-- Fav and touch icons 
-  <link rel="shortcut icon" href="img/favicon.png">
-  -->
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/scripts.js"></script>
+<title>Network Monitor System</title>
+<link href='css/login.css' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
 </head>
-
 <body>
 <div class="container">
-	<div class="header clearfix">
-        <nav>
-          <ul>
-          </ul>
-        </nav>
-		<h3>
-		</h3>
-      </div>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="jumbotron">
-				<h1 class="text-center">
-					Network Monitor System
-				</h1>
-				<p>
-					This system monitors the Netflow data and DNS query data in the test topology of <a href="http://www.testbed.ncku.edu.tw/">Testbed@TWISC</a> for the <a href="http://www.nsb.gov.tw/">National Security Bereau</a>
-				</p>
-			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/1.jpeg">
-						<div class="caption">
-							<h2 class="text-center">
-								Netflow
-							</h2>
-							<p>
-								This section is about the total Netflow data in the test topology including IP address, port number, protocol, date and time.	
-							</p>
-							<p>
-								<a class="btn btn-primary btn-block" href="flow.php">View</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/2.jpeg">
-						<div class="caption">
-							<h2 class="text-center">
-								Netflow Inside Topology
-							</h2>
-							<p>
-								This section is also about Netflow data, but just shows the flows information inside the topology(That means 10.0.0.0/8).
-							</p>
-							<p>
-								<a class="btn btn-primary btn-block" href="flow_inbound.php">View</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/3.jpeg">
-						<div class="caption">
-							<h2 class="text-center">
-								DNS Record
-							</h2>
-							<p>
-								This section records the DNS query data including the IP address which queries the DNS server and the domain name it queries.
-							</p>
-							<p>
-								<a class="btn btn-primary btn-block" href="#">View</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
+	<div class="row login_box">
+	    <div class="col-md-12 col-xs-12" align="center">
+            <div class="line"><h1>Network Monitor System</h1></div>
+            <div class="outter"><img src="img/1424685566196.jpg" class="image-circle"/></div>   
+            <h2>Welcome</h2>
+	    </div>
+        <div class="col-md-12 col-xs-12 login_control">
+   		<form action="login.php" method="post">             
+                <div class="control">
+                    <div class="label">Username</div>
+                    <input id="user" name="user" type="text" class="form-control" placeholder="username">
+                </div>
+                
+                <div class="control">
+                     <div class="label">Password</div>
+                    <input id="pass" name="pass"type="password" class="form-control" placeholder="password">
+                </div>
+                <div align="center">
+                     <input name="submit" type="submit" class="btn btn-orange" value="Login">
+                </div>
+        </form>
 		</div>
-	</div>
-	<footer class="footer">
-        <p class="text-center">&copy; <a href="http://itlab.ee.ncku.edu.tw/">Internet Technology Lab @NCKU</a> 2015 by C.C. Tu</p>
-    </footer>
+    </div>
 </div>
 </body>
 </html>
