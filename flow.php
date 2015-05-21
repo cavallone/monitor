@@ -13,7 +13,7 @@ include('session.php');
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<link href="css/justified-nav.css" rel="stylesheet">
+	<link href="css/navbar-findcond.css" rel="stylesheet">
  
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -24,16 +24,27 @@ include('session.php');
 <div class="container">
 	<div class="row clearfix">
 		<div class="masthead">
-			<nav>
-                <ul class="nav nav-justified">
-                    <li><a href="home.php">Home</a></li>
-                    <li class="active"><a href="flow.php">Netflow</a></li>
-                    <li><a href="flow_inbound.php">Netflow Inside Topology</a></li>
-                    <li><a href="#">DNS query record</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="logout.php">Logout</a></li>
-                </ul>
-            </nav>
+			<nav class="navbar navbar-findcond navbar-fixed-top">
+    			<div class="container">
+        			<div class="navbar-header">
+            			<a class="navbar-brand" href="home.php">Network Monitor System</a>
+        			</div>
+        			<div class="collapse navbar-collapse" id="navbar">
+            			<ul class="nav navbar-nav navbar-right">
+                			<li class="dropdown">
+                    			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-th-list"></i> Menu<span class="caret"></span></a>
+                    			<ul class="dropdown-menu" role="menu">
+                        			<li><a href="flow.php"><span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>Netflow</a></li>
+                        			<li><a href="flow_inbound.php"><span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>Netflow Inside Topology</a></li>
+                        			<li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>DNS Query Record</a></li>
+                    			</ul>
+                			</li>
+                			<li><a href="#"><i class="glyphicon glyphicon-question-sign">About</i><span class="sr-only"></span></a></li>
+                			<li><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout<span class="sr-only"></span></a></li>
+                    			</ul>
+        			</div>
+    			</div>
+			</nav>
 		</div>
 	</div>
 	<div class="row clearfix">
