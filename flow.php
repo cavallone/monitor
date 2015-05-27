@@ -6,14 +6,14 @@ include('session.php');
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Netflow Monitor</title>
+  <title>Network Monitor System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="author" content="">
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-	<link href="css/navbar-findcond.css" rel="stylesheet">
+	<link href="css/sidebar.css" rel="stylesheet">
  
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -23,37 +23,26 @@ include('session.php');
 <body>
 <div class="container">
 	<div class="row clearfix">
-		<div class="masthead">
-			<nav class="navbar navbar-findcond navbar-fixed-top">
-    			<div class="container">
-        			<div class="navbar-header">
-            			<a class="navbar-brand" href="home.php">Network Monitor System</a>
-        			</div>
-        			<div class="collapse navbar-collapse" id="navbar">
-            			<ul class="nav navbar-nav navbar-right">
-                			<li class="dropdown">
-                    			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="glyphicon glyphicon-th-list"></i> Menu<span class="caret"></span></a>
-                    			<ul class="dropdown-menu" role="menu">
-                        			<li><a href="flow.php"><span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>Netflow</a></li>
-                        			<li><a href="flow_inbound.php"><span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>Netflow Inside Topology</a></li>
-                        			<li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge"><i class="glyphicon glyphicon-chevron-right"></i></span>DNS Query Record</a></li>
-                    			</ul>
-                			</li>
-                			<li><a href="#"><i class="glyphicon glyphicon-question-sign">About</i><span class="sr-only"></span></a></li>
-                			<li><a href="logout.php"><i class="glyphicon glyphicon-log-out"></i> Logout<span class="sr-only"></span></a></li>
-                    			</ul>
-        			</div>
-    			</div>
+		<div>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+  				<div class="container">
+    				<a class="navbar-brand navbar-brand-centered" href="home.php">Network Monitor System</a>
+  				</div>
 			</nav>
 		</div>
 	</div>
 	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="page-header">
-				<h1 class="text-center">
-					Netflow <small>(just show top 30 flows before now)</small> 
-				</h1>
-			</div>
+		<div class="page-header">
+            <h1 class="text-center">
+                Netflow <small>(just show top 30 flows before now)</small>
+            </h1>
+         </div>
+	</div>
+	<div class="row clearfix">
+	<?php
+		include('sidebar.html');
+	?>
+		<div class="col-md-9 column">
 			<table class="table table-striped table-hover table-responsive">
 				<thead>
 					<tr>
@@ -90,7 +79,7 @@ include('session.php');
 				</tbody>
 			</table>
 			<p>
-				<a class="btn btn-danger disabled" href="#">Read more ...</a>
+				<a class="btn btn-primary disabled" href="#">Read more ...</a>
 			</p>
 		</div>
 	</div>

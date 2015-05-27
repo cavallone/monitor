@@ -15,9 +15,6 @@ include('session.php');
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 
-  <!-- Fav and touch icons 
-  <link rel="shortcut icon" href="img/favicon.png">
-  -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
@@ -46,32 +43,16 @@ include('session.php');
 			<div class="row">
 				<div class="col-md-4">
 					<div class="thumbnail">
-						<img alt="300x200" src="img/1.jpeg">
+						<img alt="300x200" src="img/2.jpeg">
 						<div class="caption">
-							<h2 class="text-center">
+							<h3 class="text-center">
 								Netflow
-							</h2>
+							</h3>
 							<p>
 								This section is about the total Netflow data in the test topology including IP address, port number, protocol, date and time.	
 							</p>
 							<p>
-								<a class="btn btn-danger btn-block" href="flow.php">View</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/2.jpeg">
-						<div class="caption">
-							<h2 class="text-center">
-								Netflow Inside Topology
-							</h2>
-							<p>
-								This section is also about Netflow data, but just shows the flows information inside the topology(That means 10.0.0.0/8).
-							</p>
-							<p>
-								<a class="btn btn-danger btn-block" href="flow_inbound.php">View</a>
+								<a class="btn btn-primary btn-block" href="flow.php">View</a>
 							</p>
 						</div>
 					</div>
@@ -80,14 +61,30 @@ include('session.php');
 					<div class="thumbnail">
 						<img alt="300x200" src="img/3.jpeg">
 						<div class="caption">
-							<h2 class="text-center">
-								DNS Record
-							</h2>
+							<h3 class="text-center">
+								Netflow Inside Topology
+							</h3>
 							<p>
-								This section records the DNS query data including the IP address which queries the DNS server and the domain name it queries.
+								This section is also about Netflow data, but just shows the information of flow inside the topology (That means 10.0.0.0/8).
 							</p>
 							<p>
-								<a class="btn btn-danger btn-block" href="#">View</a>
+								<a class="btn btn-primary btn-block" href="flow_inbound.php">View</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<img alt="300x200" src="img/4.jpeg">
+						<div class="caption">
+							<h3 class="text-center">
+								Packet Analyzing
+							</h3>
+							<p>
+								This section displays some statistics extracting from the packets captured. You can configure the process of packets capturing <a class="text-danger" href="setting.php">here</a>.
+							</p>
+							<p>
+								<a class="btn btn-primary btn-block" href="#">View</a>
 							</p>
 						</div>
 					</div>
