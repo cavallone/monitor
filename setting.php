@@ -11,11 +11,13 @@
 	<link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
 	<link href="css/sidebar.css" rel="stylesheet">
+	<link href="css/sweetalert.css" rel="stylesheet" type="text/css">
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/moment.js"></script>
     <script type="text/javascript" src="js/daterangepicker.js"></script>
+	<script type="text/javascript" src="js/sweetalert.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -41,7 +43,7 @@
             	<blockquote>
 					<h3><span class="glyphicon glyphicon-send"></span>    Packets Capturing</h3>
             		<div class="well well-lg">
-			  			<form class="form-inline">
+			  			<form class="form-inline" action="schedule.php" method="post">
                  			<fieldset>
                   				<div class="control-group">
                     				<label class="control-label" for="reservationtime">Choose the start time and end time for capturing</label>
@@ -49,8 +51,8 @@
 									<div class="controls">
                      					<div class="input-prepend input-group input-append">
                        						<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                       						<input type="text" style="width: 400px" name="reservation" id="reservationtime" class="form-control" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4"/>
-                       						<button class="btn btn-primary" type="submit">Submit</button>
+                       						<input type="text" style="width: 400px" name="reservation" id="reservationtime" class="form-control" value="08/01/2013 01:00 - 08/01/2013 13:30 "  class="span4"/>
+                       						<button class="btn btn-primary sweet-6" type="submit">Submit</button>
 					 					</div>
                     				</div>
                   				</div>
@@ -62,12 +64,14 @@
                   			$('#reservationtime').daterangepicker({
                     		timePicker: true,
                     		timePickerIncrement: 1,
-                    		format: 'MM/DD/YYYY h:mm A'
+							timePicker12Hour: false,
+                    		format: 'MM/DD/YYYY HH:mm'
                   			}, function(start, end, label) {
                     		console.log(start.toISOString(), end.toISOString(), label);
                   			});
                				});
                			</script>
+
             		</div>            
 				</blockquote>
          	</div>

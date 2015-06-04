@@ -84,7 +84,7 @@ include('session.php');
 								This section displays some statistics extracting from the packets captured. You can configure the process of packets capturing <a class="text-danger" href="setting.php">here</a>.
 							</p>
 							<p>
-								<a class="btn btn-primary btn-block" href="#">View</a>
+								<a class="btn btn-primary btn-block" href="packet.php">View</a>
 							</p>
 						</div>
 					</div>
