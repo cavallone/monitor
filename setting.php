@@ -5,19 +5,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
 	<title>Network Monitor System</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
 	<link href="css/sidebar.css" rel="stylesheet">
-	<link href="css/sweetalert.css" rel="stylesheet" type="text/css">
+	<link href="css/sweet-alert.css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/moment.js"></script>
-    <script type="text/javascript" src="js/daterangepicker.js"></script>
-	<script type="text/javascript" src="js/sweetalert.js"></script>
+	<script type="text/javascript" src="js/sweet-alert.min.js"></script>
+	<script type="text/javascript" src="js/sweet-alert.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -41,38 +39,52 @@
 			?>
 			<div class="col-md-9 column">
             	<blockquote>
-					<h3><span class="glyphicon glyphicon-send"></span>    Packets Capturing</h3>
-            		<div class="well well-lg">
-			  			<form class="form-inline" action="schedule.php" method="post">
-                 			<fieldset>
-                  				<div class="control-group">
-                    				<label class="control-label" for="reservationtime">Choose the start time and end time for capturing</label>
-                    				<ul></ul>
-									<div class="controls">
-                     					<div class="input-prepend input-group input-append">
-                       						<span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                       						<input type="text" style="width: 400px" name="reservation" id="reservationtime" class="form-control" value="08/01/2013 01:00 - 08/01/2013 13:30 "  class="span4"/>
-                       						<button class="btn btn-primary sweet-6" type="submit">Submit</button>
-					 					</div>
-                    				</div>
-                  				</div>
-                 			</fieldset>
-               			</form>
+					<h3><span class="glyphicon glyphicon-trash"></span>    Refresh Database</h3>
+					<div class="alert alert-danger">
+        				<a class="btn btn-sm btn-danger pull-right sweet-1">Clean</a>
+        				Clean up the table of <strong>Netflow</strong>
+    				</div>
 
-               			<script type="text/javascript">
-               				$(document).ready(function() {
-                  			$('#reservationtime').daterangepicker({
-                    		timePicker: true,
-                    		timePickerIncrement: 1,
-							timePicker12Hour: false,
-                    		format: 'MM/DD/YYYY HH:mm'
-                  			}, function(start, end, label) {
-                    		console.log(start.toISOString(), end.toISOString(), label);
-                  			});
-               				});
-               			</script>
+    				<div class="alert alert-danger">
+        				<a class="btn btn-sm btn-danger pull-right sweet-2">Clean</a>
+						Clean up the table of <strong>Netflow Inside Topology</strong>
+    				</div>
 
-            		</div>            
+					<script>
+						document.querySelector('.sweet-1').onclick = function(){
+        					swal({
+          						title: "Are you sure?",
+          						text: "You will not be able to recover this table!",
+          						type: "warning",
+          						showCancelButton: true,
+          						confirmButtonClass: 'btn-danger',
+          						confirmButtonText: 'Yes, delete it!',
+          						closeOnConfirm: false,
+          						//closeOnCancel: false
+        					},
+        					function(){
+								$.post('sql.php', {value:'record'});
+          						swal("Deleted!", "The data in this table has been clean up!", "success");
+        					});
+      					};
+						document.querySelector('.sweet-2').onclick = function(){
+                            swal({
+                                title: "Are you sure?",
+                                text: "You will not be able to recover this table!",
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonClass: 'btn-danger',
+                                confirmButtonText: 'Yes, delete it!',
+                                closeOnConfirm: false,
+                                //closeOnCancel: false
+                            },
+                            function(){
+								$.post('sql.php', {value:'record2'});
+                                swal("Deleted!", "The data in this table has been clean up!", "success");
+                            });
+                        };
+					</script>
+				
 				</blockquote>
          	</div>
       	</div>

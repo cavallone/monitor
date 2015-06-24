@@ -78,10 +78,10 @@ include('session.php');
 						<img alt="300x200" src="img/4.jpeg">
 						<div class="caption">
 							<h3 class="text-center">
-								Packet Analyzing
+								Packet Dumping
 							</h3>
 							<p>
-								This section displays some statistics extracting from the packets captured. You can configure the process of packets capturing <a class="text-danger" href="setting.php">here</a>.
+								This section is for users to download the pcap files of nodes in the test topology.
 							</p>
 							<p>
 								<a class="btn btn-primary btn-block" href="packet.php">View</a>

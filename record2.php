@@ -1,11 +1,13 @@
 <?php
-	$staff = 'Staff';
-    $nat = 'NAT';
-    $web = 'WebServer';
-    $db = 'DBServer';
-    $boss = 'BossComputer';
-    $mail = 'MailServer';
-	
+    $sc = 'ScoringBoard';
+    $user = 'UserRoute';
+    $fire = 'FireWall';
+    $web = 'WebSite';
+    $boss = 'BigBoss';
+    $staff = 'Staff';
+	$fileserver= 'FileServer';
+	$webin = 'WebSiteInside';
+
 	$db_host = 'localhost';
 	$db_user = 'root';
 	$db_pwd = 'csyang';
@@ -19,7 +21,7 @@
 	if (!mysql_select_db($database))
 		die("Can't select database");
 
-	$result = mysql_query("SELECT * FROM {$table}");
+	$result = mysql_query("SELECT * FROM {$table} order by ID DESC limit 30");
 	if (!$result)
 		die("Query to show fields from table failed");
 	
@@ -36,7 +38,7 @@
       			<div class=\"modal-body\">\n";
 	$s3 = "</div>
       		<div class=\"modal-footer\">
-        	<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>
+        	<button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Close</button>
       		</div>
     		</div>
   			</div>
@@ -52,59 +54,106 @@
 
 		$rowstr = implode("",$row);
 		
-		if (false !== ($rst = strpos($rowstr, $nat))){
-			if (false !== ($rst = strpos($rowstr, $web))){
-                $str = $s."<img src=\"picture/nw.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+		if (false !== ($rst = strpos($rowstr, $sc))){
+			if (false !== ($rst = strpos($rowstr, $user))){
+                $str = $s."<img src=\"picture/sc-user.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-            elseif (false !== ($rst = strpos($rowstr, $db))){
-                $str = $s."<img src=\"picture/nd.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            elseif (false !== ($rst = strpos($rowstr, $fire))){
+                $str = $s."<img src=\"picture/sc-fire.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+            elseif (false !== ($rst = strpos($rowstr, $web))){
+                $str = $s."<img src=\"picture/sc-web.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
             elseif (false !== ($rst = strpos($rowstr, $boss))){
-                $str = $s."<img src=\"picture/nb.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+                $str = $s."<img src=\"picture/sc-boss.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-            elseif (false !== ($rst = strpos($rowstr, $mail))){
-                $str = $s."<img src=\"picture/nm.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			elseif (false !== ($rst = strpos($rowstr, $staff))){
+                $str = $s."<img src=\"picture/sc-staff.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
+                $str = $s."<img src=\"picture/sc-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
 			else{
-                $str = $s."<img src=\"picture/ns.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+				$str = $s."<img src=\"picture/sc-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+        }
+
+		elseif (false !== ($rst = strpos($rowstr, $user))){
+			if (false !== ($rst = strpos($rowstr, $fire))){
+				$str = $s."<img src=\"picture/user-fire.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+			elseif (false !== ($rst = strpos($rowstr, $web))){
+				$str = $s."<img src=\"picture/user-web.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+			elseif (false !== ($rst = strpos($rowstr, $boss))){
+				$str = $s."<img src=\"picture/user-boss.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+			elseif (false !== ($rst = strpos($rowstr, $staff))){
+                $str = $s."<img src=\"picture/user-staff.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
+                $str = $s."<img src=\"picture/user-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+			else{
+				$str = $s."<img src=\"picture/user-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+		}
+
+		elseif (false !== ($rst = strpos($rowstr, $fire))){
+			if (false !== ($rst = strpos($rowstr, $web))){
+				$str = $s."<img src=\"picture/fire-web.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+			elseif (false !== ($rst = strpos($rowstr, $boss))){
+				$str = $s."<img src=\"picture/fire-boss.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+			elseif (false !== ($rst = strpos($rowstr, $staff))){
+                $str = $s."<img src=\"picture/fire-staff.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
+                $str = $s."<img src=\"picture/fire-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+			else{
+				$str = $s."<img src=\"picture/fire-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+		}
+
+		elseif (false !== ($rst = strpos($rowstr, $web))){
+			if (false !== ($rst = strpos($rowstr, $boss))){
+                $str = $s."<img src=\"picture/web-boss.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+        	}
+			elseif (false !== ($rst = strpos($rowstr, $staff))){
+                $str = $s."<img src=\"picture/web-staff.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
+                $str = $s."<img src=\"picture/web-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+			else{
+                $str = $s."<img src=\"picture/web-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+		}
+		
+		elseif (false !== ($rst = strpos($rowstr, $boss))){
+            if (false !== ($rst = strpos($rowstr, $staff))){
+                $str = $s."<img src=\"picture/boss-staff.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+            elseif (false !== ($rst = strpos($rowstr, $fileserver))){
+                $str = $s."<img src=\"picture/boss-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+            else{
+                $str = $s."<img src=\"picture/boss-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
         }
 
 		elseif (false !== ($rst = strpos($rowstr, $staff))){
-			if (false !== ($rst = strpos($rowstr, $web))){
-				$str = $s."<img src=\"picture/sw.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-			}
-			elseif (false !== ($rst = strpos($rowstr, $db))){
-				$str = $s."<img src=\"picture/sd.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-			}
-			elseif (false !== ($rst = strpos($rowstr, $boss))){
-				$str = $s."<img src=\"picture/sb.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-			}
-			else{
-				$str = $s."<img src=\"picture/sm.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-			}
-		}
-		elseif (false !== ($rst = strpos($rowstr, $web))){
-			if (false !== ($rst = strpos($rowstr, $db))){
-				$str = $s."<img src=\"picture/wd.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-			}
-			elseif (false !== ($rst = strpos($rowstr, $boss))){
-				$str = $s."<img src=\"picture/wb.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-			}
-			else{
-				$str = $s."<img src=\"picture/wm.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-			}
-		}
-		elseif (false !== ($rst = strpos($rowstr, $db))){
-			if (false !== ($rst = strpos($rowstr, $boss))){
-                $str = $s."<img src=\"picture/db.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
-        	}
-			else{
-                $str = $s."<img src=\"picture/dm.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            if (false !== ($rst = strpos($rowstr, $fileserver))){
+                $str = $s."<img src=\"picture/staff-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-		}
+            else{
+                $str = $s."<img src=\"picture/staff-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+            }
+        }
 		else{
-			$str = $s."<img src=\"picture/bm.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			$str = $s."<img src=\"picture/file-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
 		}
 		
 		$sfinal = $str.$s3."\n";

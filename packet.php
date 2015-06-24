@@ -9,7 +9,6 @@
 	<title>Network Monitor System</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css" />
 	<link href="css/sidebar.css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -40,21 +39,21 @@
 					<h3><span class="glyphicon glyphicon-download-alt"></span>Pcap Download</h3>
 					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
             		<div class="panel panel-success">
-						<div class="panel-heading" role="tab" id="panelstaff">
+						<div class="panel-heading" role="tab" id="panelsc">
 							<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordion" href="#staff" aria-expanded="true" aria-controls="staff">Staff (10.1.1.2) <span class="caret"></span></a>
+								<a data-toggle="collapse" data-parent="#accordion" href="#scoring" aria-expanded="true" aria-controls="scoring">ScoringBoard (10.1.1.1) <span class="caret"></span></a>
 							</h4>
 						</div>
-						<div id="staff" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelstaff">
+						<div id="scoring" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelsc">
 							<div class="panel-body">
 							<?php
-								$dir = scandir('/nodecap/staff');
+								$dir = scandir('/netflow/packet/scoring');
 								rsort($dir);
 								foreach($dir as $file)
 								{
 									if (strpos( $file, '.cap') )
 									{
-										echo "<ul><a href=\"download.php?file=/nodecap/staff/".$file."\">".$file."</a></ul>";
+										echo "<ul><a href=\"download.php?file=/netflow/packet/scoring/".$file."\">".$file."</a></ul>";
 									}
 								}
 							?>
@@ -62,21 +61,65 @@
 						</div>
             		</div>
 					<div class="panel panel-info">
+						<div class="panel-heading" role="tab" id="paneluser">
+                        	<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordin" href="#user" aria-expanded="true" aria-control="user">UserRoute (10.1.2.2 & 10.1.1.2) <span class="caret"></span></a>
+							</h4>
+						</div>
+						<div id="user" class="panel-collapse collapse" role="tabpanel" aria-labelledby="paneluser">
+							<div class="panel-body">
+                            <?php
+                                $dir = scandir('/netflow/packet/userroute');
+								rsort($dir);
+                                foreach($dir as $file)
+                                {
+									if (strpos( $file, '.cap') )
+									{
+                                        echo "<ul><a href=\"download.php?file=/netflow/packet/userroute/".$file."\">".$file."</a></ul>";
+									}
+                                }
+                            ?>
+							</div>
+						</div>
+                    </div>
+					<div class="panel panel-success">
+						<div class="panel-heading" role="tab" id="panelfire">
+                        	<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordin" href="#fire" aria-expanded="true" aria-control="fire">Firewall (10.1.100.3 & 10.1.2.3 & 10.1.10.3) <span class="caret"></span></a>
+							</h4>
+						</div>
+						<div id="fire" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelfire">
+							<div class="panel-body">
+                            <?php
+                                $dir = scandir('/netflow/packet/firewall');
+								rsort($dir);
+                                foreach($dir as $file)
+                                {
+									if (strpos( $file, '.cap') )
+									{
+                                        echo "<ul><a href=\"download.php?file=/netflow/packet/firewall/".$file."\">".$file."</a></ul>";
+									}
+                                }
+                            ?>
+							</div>
+						</div>
+                    </div>
+					<div class="panel panel-info">
 						<div class="panel-heading" role="tab" id="panelweb">
                         	<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordin" href="#web" aria-expanded="true" aria-control="web">WebServer (10.1.3.2) <span class="caret"></span></a>
+								<a data-toggle="collapse" data-parent="#accordin" href="#web" aria-expanded="true" aria-control="web">WebSite (10.1.10.1) <span class="caret"></span></a>
 							</h4>
 						</div>
 						<div id="web" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelweb">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/nodecap/web');
+                                $dir = scandir('/netflow/packet/website');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/nodecap/web/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/netflow/packet/website/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
@@ -84,65 +127,21 @@
 						</div>
                     </div>
 					<div class="panel panel-success">
-						<div class="panel-heading" role="tab" id="paneldb">
-                        	<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordin" href="#db" aria-expanded="true" aria-control="db">DBServer (10.1.4.2) <span class="caret"></span></a>
-							</h4>
-						</div>
-						<div id="db" class="panel-collapse collapse" role="tabpanel" aria-labelledby="paneldb">
-							<div class="panel-body">
-                            <?php
-                                $dir = scandir('/nodecap/db');
-								rsort($dir);
-                                foreach($dir as $file)
-                                {
-									if (strpos( $file, '.cap') )
-									{
-                                        echo "<ul><a href=\"download.php?file=/nodecap/db/".$file."\">".$file."</a></ul>";
-									}
-                                }
-                            ?>
-							</div>
-						</div>
-                    </div>
-					<div class="panel panel-info">
 						<div class="panel-heading" role="tab" id="panelboss">
                         	<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordin" href="#boss" aria-expanded="true" aria-control="boss">BossComputer (10.1.5.3) <span class="caret"></span></a>
+								<a data-toggle="collapse" data-parent="#accordin" href="#boss" aria-expanded="true" aria-control="boss">BigBoss (10.1.100.150) <span class="caret"></span></a>
 							</h4>
 						</div>
 						<div id="boss" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelboss">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/nodecap/boss');
+                                $dir = scandir('/netflow/packet/bigboss');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/nodecap/boss/".$file."\">".$file."</a></ul>";
-									}
-                                }
-                            ?>
-							</div>
-						</div>
-                    </div>
-					<div class="panel panel-success">
-						<div class="panel-heading" role="tab" id="panelmail">
-                        	<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordin" href="#mail" aria-expanded="true" aria-control="mail">MailServer (10.1.3.2) <span class="caret"></span></a>
-							</h4>
-						</div>
-						<div id="mail" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelmail">
-							<div class="panel-body">
-                            <?php
-                                $dir = scandir('/nodecap/mail');
-								rsort($dir);
-                                foreach($dir as $file)
-                                {
-									if (strpos( $file, '.cap') )
-									{
-                                        echo "<ul><a href=\"download.php?file=/nodecap/mail/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/netflow/packet/bigboss/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
@@ -150,43 +149,65 @@
 						</div>
                     </div>
 					<div class="panel panel-info">
-						<div class="panel-heading" role="tab" id="panelnat">
+						<div class="panel-heading" role="tab" id="panelstaff">
                         	<h4 class="panel-title">
-								<a data-toggle="collapse" data-parent="#accordin" href="#nat" aria-expanded="true" aria-control="nat">Nat (10.1.5.2 & 10.1.2.3 & 10.1.3.3 & 10.1.4.3 & 10.1.1.3) <span class="caret"></span></a>
+								<a data-toggle="collapse" data-parent="#accordin" href="#staff" aria-expanded="true" aria-control="staff">Staff (10.1.100.25) <span class="caret"></span></a>
 							</h4>
 						</div>
-						<div id="nat" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelnat">
+						<div id="staff" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelstaff">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/nodecap/nat');
+                                $dir = scandir('/netflow/packet/staff');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/nodecap/nat/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/netflow/packet/staff/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
 							</div>
 						</div>
                     </div>
-					<div class="panel panel-warning">
-                        <div class="panel-heading" role="tab" id="panelcontrol">
+					<div class="panel panel-success">
+                        <div class="panel-heading" role="tab" id="panelfile">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordin" href="#control" aria-expanded="true" aria-control="control">Control IPs (192.168.0.0/16) <span class="caret"></span></a>
+                                <a data-toggle="collapse" data-parent="#accordin" href="#file" aria-expanded="true" aria-control="file">FileServer (10.1.100.50) <span class="caret"></span></a>
                             </h4>
                         </div>
-                        <div id="control" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelcontrol">
+                        <div id="file" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelfile">
                             <div class="panel-body">
                             <?php
-                                $dir = scandir('/nodecap/control');
+                                $dir = scandir('/netflow/packet/fileserver');
                                 rsort($dir);
                                 foreach($dir as $file)
                                 {
                                     if (strpos( $file, '.cap') )
                                     {
-                                        echo "<ul><a href=\"download.php?file=/nodecap/control/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/netflow/packet/fileserver/".$file."\">".$file."</a></ul>";
+                                    }
+                                }
+                            ?>
+                            </div>
+                        </div>
+                    </div>
+					<div class="panel panel-info">
+                        <div class="panel-heading" role="tab" id="panelwebin">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordin" href="#webin" aria-expanded="true" aria-control="webin">WebSiteInside (10.1.100.1) <span class="caret"></span></a>
+                            </h4>
+                        </div>
+                        <div id="webin" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelwebin">
+                            <div class="panel-body">
+                            <?php
+                                $dir = scandir('/netflow/packet/websiteinside');
+                                rsort($dir);
+                                foreach($dir as $file)
+                                {
+                                    if (strpos( $file, '.cap') )
+                                    {
+                                        echo "<ul><a href=\"download.php?file=/netflow/packet/websiteinside/".$file."\">".$file."</a></ul>";
                                     }
                                 }
                             ?>
