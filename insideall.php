@@ -27,7 +27,7 @@ include('session.php');
 	<div class="row clearfix">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
   			<div class="container">
-    			<a class="navbar-brand navbar-brand-centered" href="home.php">Network Monitor System</a>
+    			<a class="navbar-brand navbar-brand-centered" href="flow_inbound.php">Netflow inside topology</a>
   			</div>
 		</nav>
 	</div>
@@ -35,16 +35,13 @@ include('session.php');
 		<div class="col-md-12 column">
 			<div class="page-header">
 				<h1 class="text-center">
-					Netflow Inside Topology <small>(just show 50 flows)</small> 
+					Netflow Inside Topology <small>(all)</small> 
 				</h1>
 			</div>
 		</div>
 	</div>
 	<div class="row clearfix">
-		<?php
-			include('sidebar.html');
-		?>
-		<div class="col-md-9 column">
+		<div class="col-md-12 column">
 			<table class="table table-striped table-hover table-responsive">
 				<thead>
 					<tr>
@@ -76,14 +73,14 @@ include('session.php');
 				</thead>
 				<tbody>
 				<?php
-					$token = 'limit 50';
+					$token = '';
 					include('record2.php');
 				?>
 				</tbody>
 			</table>
 			<p>
-                <a class="btn btn-primary" href="insideall.php">Read all ...</a>
-            </p>
+				<a class="btn btn-primary" href="flow_inbound.php">Back to previous page</a>
+			</p>
 		</div>
 	</div>
 </div>

@@ -34,7 +34,7 @@
 	<div class="row clearfix">
 		<div class="page-header">
             <h1 class="text-center">
-                Netflow <small>(just show top 30 flows before now)</small>
+                Netflow <small>(just show 50 flows)</small>
             </h1>
          </div>
 	</div>
@@ -74,12 +74,13 @@
 				</thead>
 				<tbody>
 				<?php
+					$token = 'limit 50';
 					include('record.php');
 				?>
 				</tbody>
 			</table>
 			<p>
-				<a class="btn btn-primary disabled" href="#">Read more ...</a>
+				<a class="btn btn-primary" href="all.php">Read all ...</a>
 			</p>
 		</div>
 	</div>

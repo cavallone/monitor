@@ -21,7 +21,8 @@
 	if (!mysql_select_db($database))
 		die("Can't select database");
 
-	$result = mysql_query("SELECT * FROM {$table} order by ID DESC limit 30");
+	$result = mysql_query("SELECT * FROM {$table} order by ID DESC {$token}");
+	
 	if (!$result)
 		die("Query to show fields from table failed");
 	
@@ -73,9 +74,12 @@
 			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
                 $str = $s."<img src=\"picture/sc-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-			else{
+			elseif (false !== ($rst = strpos($rowstr, $webin))){
 				$str = $s."<img src=\"picture/sc-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
+			else{
+				$str = $s."<img src=\"picture/sc.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
         }
 
 		elseif (false !== ($rst = strpos($rowstr, $user))){
@@ -94,8 +98,11 @@
 			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
                 $str = $s."<img src=\"picture/user-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-			else{
+			elseif (false !== ($rst = strpos($rowstr, $webin))){
 				$str = $s."<img src=\"picture/user-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			} 
+			else{
+				$str = $s."<img src=\"picture/user.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
 			}
 		}
 
@@ -112,8 +119,11 @@
 			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
                 $str = $s."<img src=\"picture/fire-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-			else{
+			elseif (false !== ($rst = strpos($rowstr, $webin))){
 				$str = $s."<img src=\"picture/fire-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+			else{
+				$str = $s."<img src=\"picture/fire.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
 			}
 		}
 
@@ -127,9 +137,12 @@
 			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
                 $str = $s."<img src=\"picture/web-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-			else{
+			elseif (false !== ($rst = strpos($rowstr, $webin))){
                 $str = $s."<img src=\"picture/web-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
+			else{
+				$str = $s."<img src=\"picture/web.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
 		}
 		
 		elseif (false !== ($rst = strpos($rowstr, $boss))){
@@ -139,22 +152,37 @@
             elseif (false !== ($rst = strpos($rowstr, $fileserver))){
                 $str = $s."<img src=\"picture/boss-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-            else{
+            elseif (false !== ($rst = strpos($rowstr, $webin))){
                 $str = $s."<img src=\"picture/boss-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
+			else{
+				$str = $s."<img src=\"picture/boss.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
         }
 
 		elseif (false !== ($rst = strpos($rowstr, $staff))){
             if (false !== ($rst = strpos($rowstr, $fileserver))){
                 $str = $s."<img src=\"picture/staff-file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
-            else{
+            elseif (false !== ($rst = strpos($rowstr, $webin))){
                 $str = $s."<img src=\"picture/staff-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
             }
+			else{
+				$str = $s."<img src=\"picture/staff.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
         }
-		else{
-			$str = $s."<img src=\"picture/file-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+		elseif (false !== ($rst = strpos($rowstr, $fileserver))){
+			if (false !== ($rst = strpos($rowstr, $webin))){
+				$str = $s."<img src=\"picture/file-webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
+			else{
+				$str = $s."<img src=\"picture/file.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+			}
 		}
+		else{
+			$str = $s."<img src=\"picture/webin.png\" class=\"img-responsive\" alt=\"Cinque Terre\">\n";
+		}
+
 		
 		$sfinal = $str.$s3."\n";
 		fwrite($file,$sfinal);

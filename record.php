@@ -12,7 +12,7 @@
 	if (!mysql_select_db($database))
 		die("Can't select database");
 
-	$result = mysql_query("SELECT * FROM {$table} order by ID DESC limit 30");
+	$result = mysql_query("SELECT * FROM {$table} order by ID DESC {$token}");
 	if (!$result)
 		die("Query to show fields from table failed");
 

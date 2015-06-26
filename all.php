@@ -1,15 +1,15 @@
 <?php
-include('session.php');
+	include('session.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Network Monitor System</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <title>Network Monitor System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
@@ -18,33 +18,28 @@ include('session.php');
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
-
-
 </head>
 
 <body>
 <div class="container">
 	<div class="row clearfix">
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-  			<div class="container">
-    			<a class="navbar-brand navbar-brand-centered" href="home.php">Network Monitor System</a>
-  			</div>
-		</nav>
-	</div>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="page-header">
-				<h1 class="text-center">
-					Netflow Inside Topology <small>(just show 50 flows)</small> 
-				</h1>
-			</div>
+		<div>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+  				<div class="container">
+    				<a class="navbar-brand navbar-brand-centered" href="flow.php">Netflow</a>
+  				</div>
+			</nav>
 		</div>
 	</div>
 	<div class="row clearfix">
-		<?php
-			include('sidebar.html');
-		?>
-		<div class="col-md-9 column">
+		<div class="page-header">
+            <h1 class="text-center">
+                Netflow <small>(all)</small>
+            </h1>
+         </div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
 			<table class="table table-striped table-hover table-responsive">
 				<thead>
 					<tr>
@@ -76,19 +71,16 @@ include('session.php');
 				</thead>
 				<tbody>
 				<?php
-					$token = 'limit 50';
-					include('record2.php');
+					$token = '';
+					include('record.php');
 				?>
 				</tbody>
 			</table>
 			<p>
-                <a class="btn btn-primary" href="insideall.php">Read all ...</a>
-            </p>
+				<a class="btn btn-primary" href="flow.php">Back to previous page</a>
+			</p>
 		</div>
 	</div>
 </div>
-<?php
-	include('tmp.html');
-?>
 </body>
 </html>
