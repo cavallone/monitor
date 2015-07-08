@@ -37,7 +37,7 @@ include('session.php');
 					Network Monitor System
 				</h1>
 				<p>
-					This system monitors the Netflow data and DNS query data in the test topology of <a href="http://www.testbed.ncku.edu.tw/">Testbed@TWISC</a> for the <a href="http://www.nsb.gov.tw/">National Security Bereau</a>
+					This system monitors the Netflow data in the test topology and provides the packet dump from each node. 
 				</p>
 			</div>
 			<div class="row">
@@ -52,7 +52,7 @@ include('session.php');
 								This section is about the total Netflow data in the test topology including IP address, port number, protocol, date and time.	
 							</p>
 							<p>
-								<a class="btn btn-primary btn-block" href="flow.php">View</a>
+								<a class="btn btn-primary btn-block" href="#">View</a>
 							</p>
 						</div>
 					</div>
@@ -81,7 +81,7 @@ include('session.php');
 								Packet Dumping
 							</h3>
 							<p>
-								This section is for users to download the pcap files of nodes in the test topology.
+								This section is for users to download the pcap files of nodes in the test topology.The pcap file is made every one hour.
 							</p>
 							<p>
 								<a class="btn btn-primary btn-block" href="packet.php">View</a>
@@ -93,7 +93,7 @@ include('session.php');
 		</div>
 	</div>
 	<footer class="footer">
-        <p class="text-center">&copy; <a href="http://itlab.ee.ncku.edu.tw/">Internet Technology Lab @NCKU</a> 2015 by C.C. Tu</p>
+        <p class="text-center">&copy;2015 by Cavallone</p>
     </footer>
 </div>
 </body>

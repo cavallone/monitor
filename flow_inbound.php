@@ -72,6 +72,12 @@ include('session.php');
 						<th>
                             Destination Port
                         </th>
+						<th>
+                            Packet Count
+                        </th>
+						<th>
+                            Byte Count
+                        </th>
 					</tr>
 				</thead>
 				<tbody>

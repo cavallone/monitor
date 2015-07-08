@@ -40,37 +40,17 @@
 			<div class="col-md-9 column">
             	<blockquote>
 					<h3><span class="glyphicon glyphicon-trash"></span>    Refresh Database</h3>
-					<div class="alert alert-danger">
-        				<a class="btn btn-sm btn-danger pull-right sweet-1">Clean</a>
-        				Clean up the table of <strong>Netflow</strong>
-    				</div>
 
     				<div class="alert alert-danger">
         				<a class="btn btn-sm btn-danger pull-right sweet-2">Clean</a>
-						Clean up the table of <strong>Netflow Inside Topology</strong>
+						Clean up the table of <strong>"Netflow Inside Topology"</strong>
     				</div>
 
 					<script>
-						document.querySelector('.sweet-1').onclick = function(){
-        					swal({
-          						title: "Are you sure?",
-          						text: "You will not be able to recover this table!",
-          						type: "warning",
-          						showCancelButton: true,
-          						confirmButtonClass: 'btn-danger',
-          						confirmButtonText: 'Yes, delete it!',
-          						closeOnConfirm: false,
-          						//closeOnCancel: false
-        					},
-        					function(){
-								$.post('sql.php', {value:'record'});
-          						swal("Deleted!", "The data in this table has been clean up!", "success");
-        					});
-      					};
 						document.querySelector('.sweet-2').onclick = function(){
                             swal({
                                 title: "Are you sure?",
-                                text: "You will not be able to recover this table!",
+                                text: "You will not be able to recover the data!",
                                 type: "warning",
                                 showCancelButton: true,
                                 confirmButtonClass: 'btn-danger',
@@ -79,7 +59,7 @@
                                 //closeOnCancel: false
                             },
                             function(){
-								$.post('sql.php', {value:'record2'});
+								$.post('sql.php', {value:'record'});
                                 swal("Deleted!", "The data in this table has been clean up!", "success");
                             });
                         };

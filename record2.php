@@ -13,7 +13,7 @@
 	$db_pwd = 'csyang';
 
 	$database = 'nsb_netflow';
-	$table = 'record2';
+	$table = 'record';
 
 	if (!mysql_connect($db_host, $db_user, $db_pwd))
 		die("Can't connect to database");
