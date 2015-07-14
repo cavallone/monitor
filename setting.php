@@ -43,7 +43,7 @@
 
     				<div class="alert alert-danger">
         				<a class="btn btn-sm btn-danger pull-right sweet-2">Clean</a>
-						Clean up the table of <strong>"Netflow Inside Topology"</strong>
+						Clean up the table of <strong>"Netflow"</strong>
     				</div>
 
 					<script>

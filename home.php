@@ -37,7 +37,7 @@ include('session.php');
 					Network Monitor System
 				</h1>
 				<p>
-					This system monitors the Netflow data in the test topology and provides the packet dump from each node. 
+					This system monitors the Netflow data in the test topology and provides the packet dump for each node. 
 				</p>
 			</div>
 			<div class="row">
@@ -46,13 +46,13 @@ include('session.php');
 						<img alt="300x200" src="img/2.jpeg">
 						<div class="caption">
 							<h3 class="text-center">
-								Netflow
+								Netflow Event
 							</h3>
 							<p>
-								This section is about the total Netflow data in the test topology including IP address, port number, protocol, date and time.	
+								We analyze the netflow data and generalize some event in the test topology that you can view in this section.
 							</p>
 							<p>
-								<a class="btn btn-primary btn-block" href="#">View</a>
+								<a class="btn btn-primary btn-block" href="ndis">View</a>
 							</p>
 						</div>
 					</div>
@@ -62,10 +62,10 @@ include('session.php');
 						<img alt="300x200" src="img/3.jpeg">
 						<div class="caption">
 							<h3 class="text-center">
-								Netflow Inside Topology
+								Netflow Raw Data
 							</h3>
 							<p>
-								This section is also about Netflow data, but just shows the information of flow inside the topology (That means 10.0.0.0/8).
+								This section is about Netflow data, and shows the information of flow inside the topology (That means 10.0.0.0/8).
 							</p>
 							<p>
 								<a class="btn btn-primary btn-block" href="flow_inbound.php">View</a>
@@ -93,7 +93,7 @@ include('session.php');
 		</div>
 	</div>
 	<footer class="footer">
-        <p class="text-center">&copy;2015 by Cavallone</p>
+        <p class="text-center">&copy; 2015 by Cavallone</p>
     </footer>
 </div>
 </body>
