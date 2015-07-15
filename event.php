@@ -34,7 +34,7 @@
 			<div class="col-md-12 column">
 				<div class="page-header">
 					<h1 class="text-center">
-						Netflow Event 
+						Netflow Event Timeline
 					</h1>
 				</div>
 			</div>

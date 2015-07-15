@@ -1,5 +1,5 @@
 <?php
-include('session.php');
+	include('session.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,11 +9,13 @@ include('session.php');
   <title>Netflow Monitor System</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="author" content="Chia-Cheng, Tu">
+  <meta name="author" content="Cavallone">
 
 	
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/sidebar.css" rel="stylesheet">
+	<link href="css/blockbox.css" rel="stylesheet">
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -22,16 +24,38 @@ include('session.php');
 
 <body>
 <div class="container">
+	<div class="row clearfix">
+		<div>
+			<nav class="navbar navbar-inverse navbar-fixed-top">
+  				<div class="container">
+    				<a class="navbar-brand navbar-brand-centered" href="home.php">Network Monitor System</a>
+  				</div>
+			</nav>
+		</div>
+	</div>
+	<div class="header clearfix">
+		<nav>
+			<ul>
+          	</ul>
+        </nav>
+    </div>
 	<div class="header clearfix">
         <nav>
-          <ul>
-          </ul>
+            <ul>
+            </ul>
         </nav>
-		<h3>
-		</h3>
-      </div>
+    </div>
+	<div class="header clearfix">
+        <nav>
+            <ul>
+            </ul>
+        </nav>
+    </div>
 	<div class="row clearfix">
-		<div class="col-md-12 column">
+		<?php
+			include('sidebar.html');
+		?>
+		<div class="col-md-9 column">
 			<div class="jumbotron">
 				<h1 class="text-center">
 					Network Monitor System
@@ -40,56 +64,39 @@ include('session.php');
 					This system monitors the Netflow data in the test topology and provides the packet dump for each node. 
 				</p>
 			</div>
-			<div class="row">
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/2.jpeg">
-						<div class="caption">
-							<h3 class="text-center">
-								Netflow Event
-							</h3>
-							<p>
-								We analyze the netflow data and generalize some event in the test topology that you can view in this section.
-							</p>
-							<p>
-								<a class="btn btn-primary btn-block" href="ndis">View</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/3.jpeg">
-						<div class="caption">
-							<h3 class="text-center">
-								Netflow Raw Data
-							</h3>
-							<p>
-								This section is about Netflow data, and shows the information of flow inside the topology (That means 10.0.0.0/8).
-							</p>
-							<p>
-								<a class="btn btn-primary btn-block" href="flow_inbound.php">View</a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="thumbnail">
-						<img alt="300x200" src="img/4.jpeg">
-						<div class="caption">
-							<h3 class="text-center">
-								Packet Dumping
-							</h3>
-							<p>
-								This section is for users to download the pcap files of nodes in the test topology.The pcap file is made every one hour.
-							</p>
-							<p>
-								<a class="btn btn-primary btn-block" href="packet.php">View</a>
-							</p>
-						</div>
-					</div>
-				</div>
+            <div class="blockquote-box blockquote-primary clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon-random glyphicon-lg">
+                </div>
+                <h3>
+                    Netflow
+				</h3>
+                <p>
+                    The Netflow information in the topology is recorded in this system.
+                </p>
+            </div>
+            <div class="blockquote-box blockquote-success clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon glyphicon-flag glyphicon-lg"></span>
+                </div>
+                <h3>
+                    Event
+				</h3>
+                <p>
+                    By analyzing the Netflow data, we generalize some event log.
+                </p>
 			</div>
+			<div class="blockquote-box blockquote-danger clearfix">
+                <div class="square pull-left">
+                    <span class="glyphicon glyphicon glyphicon-cloud-download glyphicon-lg"></span>
+                </div>
+                <h3>
+                    Packet
+                </h3>
+                <p>
+                    Also we prepare the pcap file for manager to monitor the network more detailedly.
+                </p>
+            </div>
 		</div>
 	</div>
 	<footer class="footer">
