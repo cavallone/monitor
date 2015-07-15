@@ -1,8 +1,0 @@
-.*.swp
-.*.*.swp
-
-application/config/*
-
-user_guide/*
-
-log/*
