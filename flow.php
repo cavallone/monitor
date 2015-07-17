@@ -15,7 +15,8 @@ include('session.php');
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/sidebar.css" rel="stylesheet">
 	<link href="css/tablefilter.css" rel="stylesheet">
-	<link href="css/badger.css" rel="stylesheet"> 
+	<link href="css/badger.css" rel="stylesheet">
+	
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -41,11 +42,16 @@ include('session.php');
          </div>
 	</div>
 	<div class="row clearfix">
-	<?php
-		include('sidebar.html');
-	?>
+		<div class="col-md-3 column">
+			<?php
+				include('sidebar.html');
+			?>
+			<a href="#" class="thumbnail" data-toggle="modal" data-target=".topo">
+				<img src="picture/original.png" class="img-responsive" alt="Responsive image">
+			</a>
+		</div>
 		<div class="col-md-9 column filterable">
-            <div class="offer offer-radius offer-primary">
+            <div class="offer offer-radius offer-default">
                 <div class="shape">
                     <div class="shape-text">
                         <span class="glyphicon glyphicon-search"></span>
@@ -115,6 +121,13 @@ include('session.php');
 			</table>
 		</div>
 	</div>
+</div>
+<div class="modal fade topo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <img src="picture/original.png" class="img-responsive" alt="Responsive image">
+    </div>
+  </div>
 </div>
 </body>
 </html>

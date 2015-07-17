@@ -14,6 +14,7 @@ include('session.php');
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/sidebar.css" rel="stylesheet">
+	<link href="css/badger.css" rel="stylesheet">
  
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -41,9 +42,26 @@ include('session.php');
 		</div>
 	</div>
 	<div class="row clearfix">
-		<?php
-			include('sidebar.html');
-		?>
+		<div class="col-md-3 column">
+			<?php
+				include('sidebar.html');
+			?>
+			<div class="offer offer-radius offer-primary">
+                <div class="shape">
+                    <div class="shape-text">
+                        <span class="glyphicon glyphicon-heart"></span>
+                    </div>
+                </div>
+                <div class="offer-content">
+                    <h4>
+						<strong>Hint:</strong>
+                    </h4>
+					<ul>
+						<li>You can click each row to get more information.</li>
+					</ul>
+                </div>
+			</div>
+		</div>
 		<div class="col-md-9 column">
 			<form action="#" method="get">
                 <div class="input-group">

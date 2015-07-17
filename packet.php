@@ -10,6 +10,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/sidebar.css" rel="stylesheet">
+	<link href="css/badger.css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -31,10 +32,28 @@
 			</div>
 		</div>
 		<div class="row clearfix">
-			<?php
-				include('sidebar.html');
-			?>
+			<div class="col-md-3 column">
+				<?php
+					include('sidebar.html');
+				?>
+			</div>
 			<div class="col-md-9 column">
+				<div class="offer offer-radius offer-warning">
+                	<div class="shape">
+                    	<div class="shape-text">
+                        	<span class="glyphicon glyphicon-bullhorn"></span>
+                    	</div>
+                	</div>
+                	<div class="offer-content">
+                    	<h4>
+							<strong>Policy:</strong>
+                    	</h4>
+						<ul>
+							<li>The cycle of generating pcap file is 24 hours.</li>
+							<li>All the pcap files are removed every Sunday.</li>
+						</ul>
+                	</div>
+				</div>
             	<blockquote>
 					<h3><span class="glyphicon glyphicon-download-alt"></span>Pcap Download</h3>
 					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -47,13 +66,13 @@
 						<div id="scoring" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelsc">
 							<div class="panel-body">
 							<?php
-								$dir = scandir('/netflow/packet/scoring');
+								$dir = scandir('/pcap/scoring');
 								rsort($dir);
 								foreach($dir as $file)
 								{
 									if (strpos( $file, '.cap') )
 									{
-										echo "<ul><a href=\"download.php?file=/netflow/packet/scoring/".$file."\">".$file."</a></ul>";
+										echo "<ul><a href=\"download.php?file=/pcap/scoring/".$file."\">".$file."</a></ul>";
 									}
 								}
 							?>
@@ -69,13 +88,13 @@
 						<div id="user" class="panel-collapse collapse" role="tabpanel" aria-labelledby="paneluser">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/netflow/packet/userroute');
+                                $dir = scandir('/pcap/userroute');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/netflow/packet/userroute/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/pcap/userroute/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
@@ -91,13 +110,13 @@
 						<div id="fire" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelfire">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/netflow/packet/firewall');
+                                $dir = scandir('/pcap/firewall');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/netflow/packet/firewall/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/pcap/firewall/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
@@ -113,13 +132,13 @@
 						<div id="web" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelweb">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/netflow/packet/website');
+                                $dir = scandir('/pcap/website');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/netflow/packet/website/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/pcap/website/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
@@ -135,13 +154,13 @@
 						<div id="boss" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelboss">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/netflow/packet/bigboss');
+                                $dir = scandir('/pcap/bigboss');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/netflow/packet/bigboss/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/pcap/bigboss/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
@@ -157,13 +176,13 @@
 						<div id="staff" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelstaff">
 							<div class="panel-body">
                             <?php
-                                $dir = scandir('/netflow/packet/staff');
+                                $dir = scandir('/pcap/staff');
 								rsort($dir);
                                 foreach($dir as $file)
                                 {
 									if (strpos( $file, '.cap') )
 									{
-                                        echo "<ul><a href=\"download.php?file=/netflow/packet/staff/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/pcap/staff/".$file."\">".$file."</a></ul>";
 									}
                                 }
                             ?>
@@ -179,13 +198,13 @@
                         <div id="file" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelfile">
                             <div class="panel-body">
                             <?php
-                                $dir = scandir('/netflow/packet/fileserver');
+                                $dir = scandir('/pcap/fileserver');
                                 rsort($dir);
                                 foreach($dir as $file)
                                 {
                                     if (strpos( $file, '.cap') )
                                     {
-                                        echo "<ul><a href=\"download.php?file=/netflow/packet/fileserver/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/pcap/fileserver/".$file."\">".$file."</a></ul>";
                                     }
                                 }
                             ?>
@@ -201,13 +220,13 @@
                         <div id="webin" class="panel-collapse collapse" role="tabpanel" aria-labelledby="panelwebin">
                             <div class="panel-body">
                             <?php
-                                $dir = scandir('/netflow/packet/websiteinside');
+                                $dir = scandir('/pcap/websiteinside');
                                 rsort($dir);
                                 foreach($dir as $file)
                                 {
                                     if (strpos( $file, '.cap') )
                                     {
-                                        echo "<ul><a href=\"download.php?file=/netflow/packet/websiteinside/".$file."\">".$file."</a></ul>";
+                                        echo "<ul><a href=\"download.php?file=/pcap/websiteinside/".$file."\">".$file."</a></ul>";
                                     }
                                 }
                             ?>

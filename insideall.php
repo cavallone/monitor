@@ -44,7 +44,7 @@ include('session.php');
 	</div>
 	<div class="row clearfix">
 		<div class="col-md-12 column filterable">
-			<div class="offer offer-radius offer-primary">
+			<div class="offer offer-radius offer-default">
 				<div class="shape">
 					<div class="shape-text">
 						<span class="glyphicon glyphicon-search"></span>	

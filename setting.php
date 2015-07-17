@@ -34,9 +34,11 @@
 			</div>
 		</div>
 		<div class="row clearfix">
-			<?php
-				include('sidebar.html');
-			?>
+			<div class="col-md-3 column">
+				<?php
+					include('sidebar.html');
+				?>
+			</div>
 			<div class="col-md-9 column">
             	<blockquote>
 					<h3><span class="glyphicon glyphicon-trash"></span>    Refresh Database</h3>

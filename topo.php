@@ -34,9 +34,11 @@
 			</div>
 		</div>
 		<div class="row clearfix">
-			<?php
-				include('sidebar.html');
-			?>
+			<div class="col-md-3 column">
+				<?php
+					include('sidebar.html');
+				?>
+			</div>
 			<div class="col-md-9 column">
             	<blockquote>
 					<img src="picture/original.png" class="img-responsive" alt="Responsive image" width="600">

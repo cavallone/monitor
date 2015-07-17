@@ -52,9 +52,11 @@
         </nav>
     </div>
 	<div class="row clearfix">
-		<?php
-			include('sidebar.html');
-		?>
+		<div class="col-md-3 column">
+			<?php
+				include('sidebar.html');
+			?>
+		</div>
 		<div class="col-md-9 column">
 			<div class="jumbotron">
 				<h1 class="text-center">

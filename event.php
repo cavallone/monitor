@@ -15,6 +15,8 @@
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/sidebar.css" rel="stylesheet">
 	<link href="css/timeline.css" rel="stylesheet">
+	<link href="css/collappanel.css" rel="stylesheet">
+	<link href="css/badger.css" rel="stylesheet">
  
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -40,9 +42,27 @@
 			</div>
 		</div>
 		<div class="row clearfix">
-			<?php
-				include('sidebar.html');
-			?>
+			<div class="col-md-3 column">
+				<?php
+					include('sidebar.html');
+				?>
+				<div class="offer offer-radius offer-primary">
+                	<div class="shape">
+                    	<div class="shape-text">
+                        	<span class="glyphicon glyphicon-paperclip"></span>
+                    	</div>
+                	</div>
+                	<div class="offer-content">
+                    	<h4>
+							<strong>Readme:</strong>
+                    	</h4>
+						<ul>
+							<li>X: means it doesn't matter</li>
+							<li>F: means many different</li>
+						</ul>
+                	</div>
+				</div>
+			</div>
 			<div class="col-md-9 column">
 				<div class="timeline">
 					<div class="line text-muted"></div>
@@ -82,6 +102,7 @@
             						  </div>\n";
 								echo "<div class=\"panel-heading\">
                 						<h2 class=\"panel-title\">Flooding Flow</h2>
+										<span class=\"pull-right clickable\"><i class=\"glyphicon glyphicon-chevron-up\"></i></span>
             						  </div>\n";
 							}
 							elseif (false !== ($rst = strpos($row[3], $hori)))
@@ -92,6 +113,7 @@
                                       </div>\n";
                                 echo "<div class=\"panel-heading\">
                                         <h2 class=\"panel-title\">Horizontal Scan</h2>
+										<span class=\"pull-right clickable\"><i class=\"glyphicon glyphicon-chevron-up\"></i></span>
                                       </div>\n";
                             }
 							elseif (false !== ($rst = strpos($row[3], $verti)))
@@ -102,6 +124,7 @@
                                       </div>\n";
                                 echo "<div class=\"panel-heading\">
                                         <h2 class=\"panel-title\">Vertical Scan</h2>
+										<span class=\"pull-right clickable\"><i class=\"glyphicon glyphicon-chevron-up\"></i></span>
                                       </div>\n";
                             }
 							elseif (false !== ($rst = strpos($row[3], $dconn)))
@@ -112,6 +135,7 @@
                                       </div>\n";
                                 echo "<div class=\"panel-heading\">
                                         <h2 class=\"panel-title\">Distributed Connection</h2>
+										<span class=\"pull-right clickable\"><i class=\"glyphicon glyphicon-chevron-up\"></i></span>
                                       </div>\n";
                             }
 							elseif (false !== ($rst = strpos($row[3], $brute)))
@@ -122,6 +146,7 @@
                                       </div>\n";
                                 echo "<div class=\"panel-heading\">
                                         <h2 class=\"panel-title\">Brute Force</h2>
+										<span class=\"pull-right clickable\"><i class=\"glyphicon glyphicon-chevron-up\"></i></span>
                                       </div>\n";
                             }
 							else
@@ -137,6 +162,7 @@
 									<li class=\"list-group-item\"><strong>Count : </strong>$row[8]</li>
 								   </ul>\n";
 							echo "</article>\n";
+
 						}
 					?>
 				</div>
@@ -144,3 +170,18 @@
 		</div>
 	</div>
 </body>
+</html>
+<script>
+	$(document).on('click', '.panel-heading span.clickable', function(e){
+    var $this = $(this);
+	if(!$this.hasClass('panel-collapsed')) {
+		$this.parents('.panel').find('.list-group').slideUp();
+		$this.addClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+	} else {
+		$this.parents('.panel').find('.list-group').slideDown();
+		$this.removeClass('panel-collapsed');
+		$this.find('i').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+	}
+})
+</script>
