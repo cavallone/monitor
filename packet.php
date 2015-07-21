@@ -28,7 +28,7 @@
 		</div>
 		<div class="row clearfix">
 			<div class="page-header">
-          		<h1 class="text-center">Packet Analyzing</h1>
+          		<h1 class="text-center">Packet Dumping</h1>
 			</div>
 		</div>
 		<div class="row clearfix">

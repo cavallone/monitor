@@ -10,12 +10,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/sidebar.css" rel="stylesheet">
-	<link href="css/sweet-alert.css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/sweet-alert.min.js"></script>
-	<script type="text/javascript" src="js/sweet-alert.js"></script>
 </head>
 <body>
 	<div class="container">
