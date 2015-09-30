@@ -49,8 +49,8 @@
 							<strong>Policy:</strong>
                     	</h4>
 						<ul>
-							<li>The cycle of generating pcap file is 24 hours.</li>
-							<li>All the pcap files are removed every Sunday.</li>
+							<li>The cycle of generating pcap file is <a class="text-danger">1 hour</a>.</li>
+							<li>All the pcap files are <a class="text-danger">removed every Sunday</a>.</li>
 						</ul>
                 	</div>
 				</div>

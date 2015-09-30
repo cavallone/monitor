@@ -41,6 +41,11 @@
 			 	<div class="col-md-12 column well" id="pktchart"></div>
 			</div>
 		</div>
+		<div class="row clearfix">
+			<footer class="footer">
+				<p class="text-center">...appreciate evshary's help...</p>
+			</footer>
+		</div>
 	</div>
 </body>
 </html>

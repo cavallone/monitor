@@ -62,6 +62,9 @@
 						</ul>
                 	</div>
 				</div>
+				<a href="#" class="thumbnail" data-toggle="modal" data-target=".topo">
+					<img src="picture/original.png" class="img-responsive" alt="Responsive image">
+				</a>
 			</div>
 			<div class="col-md-9 column">
 				<div class="timeline">
@@ -153,11 +156,91 @@
 							{
 								echo "Something wrong.\n";
 							}
-							
+
+							if (false !== ($rst = strpos($row[4], '10.1.1.1'))){
+								$sip = $row[4]." (ScoringBoard)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.2.2'))){
+								$sip = $row[4]." (UserRoute)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.1.2'))){
+								$sip = $row[4]." (UserRoute)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.100.3'))){
+								$sip = $row[4]." (FireWall)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.2.3'))){
+								$sip = $row[4]." (FireWall)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.10.3'))){
+								$sip = $row[4]." (FireWall)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.10.1'))){
+								$sip = $row[4]." (WebSite)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.100.150'))){
+								$sip = $row[4]." (BigBoss)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.100.25'))){
+								$sip = $row[4]." (Staff)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.100.50'))){
+								$sip = $row[4]." (FileServer)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.1.100.1'))){
+								$sip = $row[4]." (WebSiteInside)";
+							}
+							elseif (false !== ($rst = strpos($row[4], '10.8.0.'))){
+								$sip = $row[4]." (User)";
+							}
+							else{
+								$sip = $row[4];
+							}
+
+							if (false !== ($rst = strpos($row[6], '10.1.1.1'))){
+								$dip = $row[6]." (ScoringBoard)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.2.2'))){
+								$dip = $row[6]." (UserRoute)";
+                            }
+                            elseif (false !== ($rst = strpos($row[6], '10.1.1.2'))){
+								$dip = $row[6]." (UserRoute)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.100.3'))){
+								$dip = $row[6]." (FireWall)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.2.3'))){
+								$dip = $row[6]." (FireWall)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.10.3'))){
+								$dip = $row[6]." (FireWall)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.10.1'))){
+								$dip = $row[6]." (WebSite)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.100.150'))){
+								$dip = $row[6]." (BigBoss)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.100.25'))){
+								$dip = $row[6]." (Staff)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.100.50'))){
+								$dip = $row[6]." (FileServer)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.1.100.1'))){
+								$dip = $row[6]." (WebSiteInside)";
+							}
+							elseif (false !== ($rst = strpos($row[6], '10.8.0.'))){
+								$dip = $row[6]." (User)";
+							}
+							else{
+								$dip = $row[6];
+							}
+
 							echo "<ul class=\"list-group\">
-									<li class=\"list-group-item\"><strong>Source IP : </strong>$row[4]</li>
+									<li class=\"list-group-item\"><strong>Source IP : </strong>$sip</li>
 									<li class=\"list-group-item\"><strong>Source Port : </strong>$row[5]</li>
-									<li class=\"list-group-item\"><strong>Destination IP : </strong>$row[6]</li>
+									<li class=\"list-group-item\"><strong>Destination IP : </strong>$dip</li>
 									<li class=\"list-group-item\"><strong>Destination Port : </strong>$row[7]</li>
 									<li class=\"list-group-item\"><strong>Count : </strong>$row[8]</li>
 								   </ul>\n";
@@ -168,8 +251,20 @@
 				</div>
 			</div>
 		</div>
+		<div class="row clearfix">
+			<footer class="footer">
+				<p class="text-center">...appreciate evshary's help...</p>
+			</footer>
+		</div>
 	</div>
 </body>
+<div class="modal fade topo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+	<div class="modal-dialog modal-lg">
+    	<div class="modal-content">
+	    	<img src="picture/original.png" class="img-responsive" alt="Responsive image">
+		</div>
+	</div>
+</div>
 </html>
 <script>
 	$(document).on('click', '.panel-heading span.clickable', function(e){

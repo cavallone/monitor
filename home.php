@@ -85,7 +85,7 @@
                     Event
 				</h3>
                 <p>
-                    By analyzing the Netflow data, we generalize some event log.
+                    By analyzing the Netflow data, we generalize some event logs.
                 </p>
 			</div>
 			<div class="blockquote-box blockquote-danger clearfix">
@@ -102,7 +102,7 @@
 		</div>
 	</div>
 	<footer class="footer">
-        <p class="text-center">&copy; 2015 by Cavallone</p>
+        <p class="text-center">&copy; 2015 created by Cavallone</p>
     </footer>
 </div>
 </body>

@@ -1,13 +1,4 @@
 <?php
-    $sc = 'ScoringBoard';
-    $user = 'UserRoute';
-    $fire = 'FireWall';
-    $web = 'WebSite';
-    $boss = 'BigBoss';
-    $staff = 'Staff';
-    $fileserver= 'FileServer';
-    $webin = 'WebSiteInside';
-
 	$db_host = 'localhost';
 	$db_user = 'root';
 	$db_pwd = 'csyang';
@@ -29,168 +20,14 @@
 	{
 		$rowstr = implode("",$row);
 		
-		if (false !== ($rst = strpos($rowstr, $sc))){
-			if (false !== ($rst = strpos($rowstr, $user))){
-				continue;
-            }
-            elseif (false !== ($rst = strpos($rowstr, $fire))){
-				continue;
-            }
-            elseif (false !== ($rst = strpos($rowstr, $web))){
-				continue;
-            }
-            elseif (false !== ($rst = strpos($rowstr, $boss))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $staff))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $webin))){
-				continue;
-            }
-			else{
-				echo "<tr>";
-
-					foreach($row as $cell)
-						echo "<td>$cell</td>";
-
-				echo "</tr>\n";
-			}
-        }
-		elseif (false !== ($rst = strpos($rowstr, $user))){
-			if (false !== ($rst = strpos($rowstr, $fire))){
-				continue;
-			}
-			elseif (false !== ($rst = strpos($rowstr, $web))){
-				continue;
-			}
-			elseif (false !== ($rst = strpos($rowstr, $boss))){
-				continue;
-			}
-			elseif (false !== ($rst = strpos($rowstr, $staff))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $webin))){
-				continue;
-			} 
-			else{
-				echo "<tr>";
-
-					foreach($row as $cell)
-						echo "<td>$cell</td>";
-
-				echo "</tr>\n";
-			}
-		}
-		elseif (false !== ($rst = strpos($rowstr, $fire))){
-			if (false !== ($rst = strpos($rowstr, $web))){
-				continue;
-			}
-			elseif (false !== ($rst = strpos($rowstr, $boss))){
-				continue;
-			}
-			elseif (false !== ($rst = strpos($rowstr, $staff))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $webin))){
-				continue;
-			}
-			else{
-				echo "<tr>";
-
-					foreach($row as $cell)
-						echo "<td>$cell</td>";
-
-				echo "</tr>\n";
-			}
-		}
-		elseif (false !== ($rst = strpos($rowstr, $web))){
-			if (false !== ($rst = strpos($rowstr, $boss))){
-				continue;
-        	}
-			elseif (false !== ($rst = strpos($rowstr, $staff))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $fileserver))){
-				continue;
-            }
-			elseif (false !== ($rst = strpos($rowstr, $webin))){
-				continue;
-            }
-			else{
-				echo "<tr>";
-
-					foreach($row as $cell)
-						echo "<td>$cell</td>";
-
-				echo "</tr>\n";
-			}
-		}
-		
-		elseif (false !== ($rst = strpos($rowstr, $boss))){
-            if (false !== ($rst = strpos($rowstr, $staff))){
-				continue;
-            }
-            elseif (false !== ($rst = strpos($rowstr, $fileserver))){
-				continue;
-            }
-            elseif (false !== ($rst = strpos($rowstr, $webin))){
-				continue;
-            }
-			else{
-				echo "<tr>";
-
-					foreach($row as $cell)
-						echo "<td>$cell</td>";
-
-				echo "</tr>\n";
-			}
-        }
-		elseif (false !== ($rst = strpos($rowstr, $staff))){
-            if (false !== ($rst = strpos($rowstr, $fileserver))){
-				continue;
-            }
-            elseif (false !== ($rst = strpos($rowstr, $webin))){
-				continue;
-            }
-			else{
-				echo "<tr>";
-
-					foreach($row as $cell)
-						echo "<td>$cell</td>";
-
-				echo "</tr>\n";
-			}
-        }
-		elseif (false !== ($rst = strpos($rowstr, $fileserver))){
-			if (false !== ($rst = strpos($rowstr, $webin))){
-				continue;
-			}
-			else{
-				echo "<tr>";
-
-					foreach($row as $cell)
-						echo "<td>$cell</td>";
-
-				echo "</tr>\n";
-			}
-		}
-		else{
+		if (false !== ($rst = strpos($rowstr, '10.8.0.'))){
 			echo "<tr>";
-
 				foreach($row as $cell)
 					echo "<td>$cell</td>";
-
 			echo "</tr>\n";
+		}
+		else{
+			continue;
 		}
 	}	
 	mysql_free_result($result);
