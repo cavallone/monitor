@@ -38,7 +38,7 @@
 	<div class="row clearfix">
 		<div class="page-header">
             <h1 class="text-center">
-                Netflow About User
+                Netflow of Control IP
             </h1>
          </div>
 	</div>
@@ -103,40 +103,33 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php
-    					$db_host = 'localhost';
-    					$db_user = 'root';
-    					$db_pwd = 'csyang';
+				<?php
+					$db_host = 'localhost';
+    				$db_user = 'root';
+    				$db_pwd = 'csyang';
 
-    					$database = 'nsb_netflow';
-    					$table = 'record';
+    				$database = 'nsb_netflow';
+    				$table = 'recordfor192';
 
-    					if (!mysql_connect($db_host, $db_user, $db_pwd))
-        					die("Can't connect to database");
+    				if (!mysql_connect($db_host, $db_user, $db_pwd))
+        				die("Can't connect to database");
 
-    					if (!mysql_select_db($database))
-        					die("Can't select database");
+    				if (!mysql_select_db($database))
+        				die("Can't select database");
 
-    					$result = mysql_query("SELECT * FROM {$table} order by ID DESC");
-    					if (!$result)
-        					die("Query to show fields from table failed");
+    				$result = mysql_query("SELECT * FROM {$table} order by ID DESC");
+    				if (!$result)
+        				die("Query to show fields from table failed");
 
-    					while($row = mysql_fetch_row($result))
-    					{
-        					$rowstr = implode("",$row);
-
-        					if (false !== ($rst = strpos($rowstr, '10.8.0.'))){
-            					echo "<tr>";
-                				foreach($row as $cell)
-                    					echo "<td>$cell</td>";
-            					echo "</tr>\n";
-        					}
-        					else{
-            					continue;
-        					}
-    					}
-    					mysql_free_result($result);
-					?>
+    				while($row = mysql_fetch_row($result))
+    				{
+            			echo "<tr>";
+                		foreach($row as $cell)
+                   			echo "<td>$cell</td>";
+            			echo "</tr>\n";
+        			}
+    				mysql_free_result($result);
+				?>
 				</tbody>
 			</table>
 		</div>

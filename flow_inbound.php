@@ -37,7 +37,7 @@ include('session.php');
 		<div class="col-md-12 column">
 			<div class="page-header">
 				<h1 class="text-center">
-					Netflow Raw Data
+					Netflow of the other
 				</h1>
 			</div>
 		</div>
@@ -59,7 +59,7 @@ include('session.php');
                     </h4>
 					<ul>
 						<li>You can click each row to get more information.</li>
-						<li>Press the up or down icon of "ID" field to sort the data.</li>
+						<li>Press the up or down icon of each field of first row to sort the data.</li>
 					</ul>
                 </div>
 			</div>

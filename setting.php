@@ -45,8 +45,13 @@
 
     				<div class="alert alert-danger">
         				<a class="btn btn-sm btn-danger pull-right sweet-2">Clean</a>
-						Clean up the table of <strong>"Netflow"</strong>
+						Clean up the table of <strong>"Netflow(10.0.0.0/8)"</strong>
     				</div>
+
+					<div class="alert alert-danger">
+                        <a class="btn btn-sm btn-danger pull-right sweet-3">Clean</a>
+                        Clean up the table of <strong>"Netflow of Control IP(192.168.0.0/16)"</strong>
+                    </div>
 
 					<script>
 						document.querySelector('.sweet-2').onclick = function(){
@@ -62,6 +67,23 @@
                             },
                             function(){
 								$.post('sql.php', {value:'record'});
+                                swal("Deleted!", "The data in this table has been clean up!", "success");
+                            });
+                        };
+
+						document.querySelector('.sweet-3').onclick = function(){
+                            swal({
+                                title: "Are you sure?",
+                                text: "You will not be able to recover the data!",
+                                type: "warning",
+                                showCancelButton: true,
+                                confirmButtonClass: 'btn-danger',
+                                confirmButtonText: 'Yes, delete it!',
+                                closeOnConfirm: false,
+                                //closeOnCancel: false
+                            },
+                            function(){
+                                $.post('sql.php', {value:'recordfor192'});
                                 swal("Deleted!", "The data in this table has been clean up!", "success");
                             });
                         };

@@ -28,7 +28,7 @@
 		</div>
 		<div class="row clearfix">
 			<div class="page-header">
-          		<h1 class="text-center">Packet Dumping</h1>
+          		<h1 class="text-center">Packets Dump</h1>
 			</div>
 		</div>
 		<div class="row clearfix">
@@ -67,12 +67,19 @@
 							<div class="panel-body">
 							<?php
 								$dir = scandir('/pcap/scoring');
-								rsort($dir);
-								foreach($dir as $file)
+								if ((int)count($dir) == 2)
 								{
-									if (strpos( $file, '.cap') )
+									echo "<span class='label label-danger'>There is no pcap file.</span>";
+								}
+								else
+								{
+									rsort($dir);
+									foreach($dir as $file)
 									{
-										echo "<ul><a href=\"download.php?file=/pcap/scoring/".$file."\">".$file."</a></ul>";
+										if (strpos( $file, '.cap') )
+										{
+											echo "<ul><a href=\"download.php?file=/pcap/scoring/".$file."\">".$file."</a></ul>";
+										}
 									}
 								}
 							?>
@@ -89,14 +96,21 @@
 							<div class="panel-body">
                             <?php
                                 $dir = scandir('/pcap/userroute');
-								rsort($dir);
-                                foreach($dir as $file)
+								if ((int)count($dir) == 2)
                                 {
-									if (strpos( $file, '.cap') )
-									{
-                                        echo "<ul><a href=\"download.php?file=/pcap/userroute/".$file."\">".$file."</a></ul>";
-									}
+                                    echo "<span class='label label-danger'>There is no pcap file.</span>";
                                 }
+								else
+								{
+									rsort($dir);
+                                	foreach($dir as $file)
+                                	{
+										if (strpos( $file, '.cap') )
+										{	
+                                        	echo "<ul><a href=\"download.php?file=/pcap/userroute/".$file."\">".$file."</a></ul>";
+										}
+                                	}
+								}
                             ?>
 							</div>
 						</div>
@@ -111,14 +125,21 @@
 							<div class="panel-body">
                             <?php
                                 $dir = scandir('/pcap/firewall');
-								rsort($dir);
-                                foreach($dir as $file)
+								if ((int)count($dir) == 2)
                                 {
-									if (strpos( $file, '.cap') )
-									{
-                                        echo "<ul><a href=\"download.php?file=/pcap/firewall/".$file."\">".$file."</a></ul>";
-									}
+                                    echo "<span class='label label-danger'>There is no pcap file.</span>";
                                 }
+								else
+								{
+									rsort($dir);
+                                	foreach($dir as $file)
+                                	{
+										if (strpos( $file, '.cap') )
+										{
+                                        	echo "<ul><a href=\"download.php?file=/pcap/firewall/".$file."\">".$file."</a></ul>";
+										}
+                                	}
+								}	
                             ?>
 							</div>
 						</div>
@@ -133,14 +154,21 @@
 							<div class="panel-body">
                             <?php
                                 $dir = scandir('/pcap/website');
-								rsort($dir);
-                                foreach($dir as $file)
+								if ((int)count($dir) == 2)
                                 {
-									if (strpos( $file, '.cap') )
-									{
-                                        echo "<ul><a href=\"download.php?file=/pcap/website/".$file."\">".$file."</a></ul>";
-									}
+                                    echo "<span class='label label-danger'>There is no pcap file.</span>";
                                 }
+								else
+								{
+									rsort($dir);
+                                	foreach($dir as $file)
+                                	{
+										if (strpos( $file, '.cap') )
+										{
+                                        	echo "<ul><a href=\"download.php?file=/pcap/website/".$file."\">".$file."</a></ul>";
+										}
+                                	}
+								}
                             ?>
 							</div>
 						</div>
@@ -155,14 +183,21 @@
 							<div class="panel-body">
                             <?php
                                 $dir = scandir('/pcap/bigboss');
-								rsort($dir);
-                                foreach($dir as $file)
+								if ((int)count($dir) == 2)
                                 {
-									if (strpos( $file, '.cap') )
-									{
-                                        echo "<ul><a href=\"download.php?file=/pcap/bigboss/".$file."\">".$file."</a></ul>";
-									}
+                                    echo "<span class='label label-danger'>There is no pcap file.</span>";
                                 }
+								else
+								{
+									rsort($dir);
+                                	foreach($dir as $file)
+                                	{
+										if (strpos( $file, '.cap') )
+										{
+                                        	echo "<ul><a href=\"download.php?file=/pcap/bigboss/".$file."\">".$file."</a></ul>";
+										}
+                                	}
+								}
                             ?>
 							</div>
 						</div>
@@ -177,14 +212,21 @@
 							<div class="panel-body">
                             <?php
                                 $dir = scandir('/pcap/staff');
-								rsort($dir);
-                                foreach($dir as $file)
+								if ((int)count($dir) == 2)
                                 {
-									if (strpos( $file, '.cap') )
-									{
-                                        echo "<ul><a href=\"download.php?file=/pcap/staff/".$file."\">".$file."</a></ul>";
-									}
+                                    echo "<span class='label label-danger'>There is no pcap file.</span>";
                                 }
+								else
+								{
+									rsort($dir);
+                                	foreach($dir as $file)
+                                	{
+										if (strpos( $file, '.cap') )
+										{
+                                        	echo "<ul><a href=\"download.php?file=/pcap/staff/".$file."\">".$file."</a></ul>";
+										}
+                                	}
+								}
                             ?>
 							</div>
 						</div>
@@ -199,14 +241,21 @@
                             <div class="panel-body">
                             <?php
                                 $dir = scandir('/pcap/fileserver');
-                                rsort($dir);
-                                foreach($dir as $file)
+								if ((int)count($dir) == 2)
                                 {
-                                    if (strpos( $file, '.cap') )
-                                    {
-                                        echo "<ul><a href=\"download.php?file=/pcap/fileserver/".$file."\">".$file."</a></ul>";
-                                    }
+                                    echo "<span class='label label-danger'>There is no pcap file.</span>";
                                 }
+								else
+								{
+                                	rsort($dir);
+                                	foreach($dir as $file)
+                                	{
+                                    	if (strpos( $file, '.cap') )
+                                    	{
+                                        	echo "<ul><a href=\"download.php?file=/pcap/fileserver/".$file."\">".$file."</a></ul>";
+                                    	}
+                                	}
+								}
                             ?>
                             </div>
                         </div>
@@ -221,14 +270,21 @@
                             <div class="panel-body">
                             <?php
                                 $dir = scandir('/pcap/websiteinside');
-                                rsort($dir);
-                                foreach($dir as $file)
+								if ((int)count($dir) == 2)
                                 {
-                                    if (strpos( $file, '.cap') )
-                                    {
-                                        echo "<ul><a href=\"download.php?file=/pcap/websiteinside/".$file."\">".$file."</a></ul>";
-                                    }
+                                    echo "<span class='label label-danger'>There is no pcap file.</span>";
                                 }
+								else
+								{
+                                	rsort($dir);
+                                	foreach($dir as $file)
+                                	{
+                                    	if (strpos( $file, '.cap') )
+                                    	{
+                                        	echo "<ul><a href=\"download.php?file=/pcap/websiteinside/".$file."\">".$file."</a></ul>";
+                                    	}
+                                	}
+								}
                             ?>
                             </div>
                         </div>

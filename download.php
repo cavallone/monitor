@@ -1,7 +1,6 @@
 <?php
 	if(isset($_GET['file']))
 	{
-    	// $_GET['file'] 即為傳入要下載檔名的引數
 		$filearr = explode("/", $_GET['file']);
 		$filename = array_pop($filearr);
     	header("Content-type:application/force-download");
